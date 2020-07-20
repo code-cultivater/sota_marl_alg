@@ -5,7 +5,9 @@ from agent.agent import Agents, CommAgents
 from common.replay_buffer import ReplayBuffer
 import matplotlib.pyplot as plt
 # from tqdm import tqdm
-from smac.env import StarCraft2Env
+#from smac.env import StarCraft2Env
+
+from ma_maze_env import MeetEnv
 
 
 class Runner:
@@ -13,6 +15,7 @@ class Runner:
         self.env = env
 
         # 用来在一个稀疏奖赏的环境上评估算法的好坏，胜利为1，失败为-1，其他普通的一步为0
+        '''
         self.env_evaluate = StarCraft2Env(map_name=args.map,
                                           step_mul=args.step_mul,
                                           difficulty=args.difficulty,
@@ -21,6 +24,8 @@ class Runner:
                                           replay_dir=args.replay_dir,
                                           reward_sparse=True,
                                           reward_scale=False)
+        '''
+        self.env_evaluate = MeetEnv()
 
         if args.alg.find('commnet') > -1 or args.alg.find('g2anet') > -1:  # communication agent
             self.agents = CommAgents(args)

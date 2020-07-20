@@ -67,7 +67,7 @@ class RolloutWorker:
                 avail_actions.append(avail_action)
                 last_action[agent_id] = action_onehot
 
-            reward, terminated, _ = self.env.step(actions)
+            unuse_o,reward, terminated, _ = self.env.step(actions)
             if step == self.episode_limit - 1:
                 terminated = 1
 
@@ -80,7 +80,7 @@ class RolloutWorker:
             terminate.append([terminated])
             padded.append([0.])
             episode_reward += reward
-            step += 1
+            step += 1## 不保存s^'???
             # if terminated:
             #     time.sleep(1)
             if self.args.epsilon_anneal_scale == 'step':
