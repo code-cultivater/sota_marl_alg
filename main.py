@@ -3,7 +3,8 @@ from runner import Runner
 from common.arguments import get_common_args, get_coma_args,\
     get_mixer_args, get_centralv_args, get_reinforce_args, \
     get_commnet_args, get_g2anet_args
-from ma_maze_env import MeetEnv
+#from ma_maze_env import MeetEnv
+from ma_maze_env import  MeetEnv_Undisplay as MeetEnv
 
 # python main.py --map=3m --alg=qmix
 if __name__ == '__main__':
