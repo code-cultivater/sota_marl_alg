@@ -53,7 +53,6 @@ class Runner:
         # print('Run {} start'.format(num))
         for epoch in range(self.args.n_epoch):
             print('Run {}, train epoch {}'.format(num, epoch))
-
             if epoch % self.args.evaluate_cycle == 0:
                 win_rate, episode_reward = self.evaluate()
                 # print('win_rate is ', win_rate)

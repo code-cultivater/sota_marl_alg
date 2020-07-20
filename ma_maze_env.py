@@ -91,7 +91,7 @@ class MeetEnv(gym.Env):
         return
 
     def reset(self):
-        self.windows.update()
+        #self.windows.update()
         self.episode_over = False
         self.init_args()
         self.multi_agent_init()
@@ -133,8 +133,8 @@ class MeetEnv(gym.Env):
 
     def _take_action(self, idx, act):
         self.prev_players_pos[idx]=[self.players_pos[idx][0],self.players_pos[idx][1]]
-        print(id(self.prev_players_pos[idx][0]))
-        print(self.players_pos[idx][0])
+        #print(id(self.prev_players_pos[idx][0]))
+        #print(self.players_pos[idx][0])
         player_i_x,player_i_y=self.players_pos[idx]
         if act==0:
             pass

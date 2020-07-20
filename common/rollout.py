@@ -48,6 +48,7 @@ class RolloutWorker:
             maven_z = list(maven_z.cpu())
         while not terminated:
             # time.sleep(0.2)
+
             obs = self.env.get_obs()
             state = self.env.get_state()
             actions, avail_actions, actions_onehot = [], [], []
@@ -68,6 +69,7 @@ class RolloutWorker:
                 last_action[agent_id] = action_onehot
 
             unuse_o,reward, terminated, _ = self.env.step(actions)
+
             if step == self.episode_limit - 1:
                 terminated = 1
 
